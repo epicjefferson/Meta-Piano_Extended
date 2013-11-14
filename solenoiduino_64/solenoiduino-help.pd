@@ -1,0 +1,44 @@
+#N canvas 264 44 525 392 10;
+#X obj 17 230 solenoiduino;
+#X msg 55 122 trigger 0 20;
+#X obj 17 282 route connection;
+#X obj 17 312 tgl 15 0 empty empty empty 17 7 0 10 -204786 -1 -1 1
+1;
+#X text 36 310 connection;
+#X msg 28 76 devicename /dev/ttyUSB0;
+#X obj 110 309 print COMPORT_OUT;
+#X text 11 8 solenoiduino - control solenoids attached to an arduino
+;
+#X text 11 21 =======================================================
+;
+#X obj 104 156 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 3;
+#X obj 104 180 pack f f;
+#X floatatom 162 181 5 1 500 0 - - -;
+#X msg 104 202 trigger \$1 \$2;
+#X msg 43 99 close;
+#X text 231 154 digital pin;
+#X text 195 179 ms (duty cycle);
+#X text 143 227 A trigger message turns digital pin on with given duty
+cycle. The idea is that the timing is managed by the chip in order
+to avoid jitter from the USB link.;
+#X text 142 281 NOTE: 0 corresponds to digital pin 2 \, 1 -> 3 \, etc.
+;
+#X text 358 361 2013 \, Roman Haefeli;
+#X msg 17 51 open 9;
+#X msg 244 84 trigger 3 0;
+#X obj 272 209 print;
+#X msg 249 115 0;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 6 0;
+#X connect 5 0 0 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 1;
+#X connect 12 0 0 0;
+#X connect 12 0 21 0;
+#X connect 13 0 0 0;
+#X connect 19 0 0 0;
+#X connect 22 0 11 0;
